@@ -42,7 +42,7 @@
 <template>
   <div class="layout">
     <div class="layout-ceiling">
-      <div class="layout-logo"></div>
+      <div class="layout-logo"><span style="background-color: #42b983">ecomb</span></div>
       <div class="layout-ceiling-main">
         <a href="#">注册登录</a> |
         <a href="#">帮助中心</a> |

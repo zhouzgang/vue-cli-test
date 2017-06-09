@@ -68,9 +68,11 @@
           <Submenu name="2">
             <template slot="title">
               <Icon type="ios-keypad"></Icon>
-              导航二
+              商家
             </template>
-            <Menu-item name="2-1">选项 1</Menu-item>
+            <router-link to="/business/business" >
+              <Menu-item name="2-1">选项 1</Menu-item>
+            </router-link>
             <Menu-item name="2-2">选项 2</Menu-item>
           </Submenu>
           <Submenu name="3">
@@ -94,29 +96,21 @@
             <Breadcrumb-item>某应用</Breadcrumb-item>
           </Breadcrumb>
         </div>
-        <!--<div class="layout-breadcrumb">-->
-          <!--&lt;!&ndash;<i-button type="text" @click="toggleClick">&ndash;&gt;-->
-            <!--&lt;!&ndash;<Icon type="navicon" size="32"></Icon>&ndash;&gt;-->
-          <!--&lt;!&ndash;</i-button>&ndash;&gt;-->
-          <!--<Breadcrumb>-->
-            <!--<Breadcrumb-item href="#">首页</Breadcrumb-item>-->
-            <!--<Breadcrumb-item href="#">应用中心</Breadcrumb-item>-->
-            <!--<Breadcrumb-item>某应用</Breadcrumb-item>-->
-          <!--</Breadcrumb>-->
-        <!--</div>-->
         <div class="layout-content">
           <div class="layout-content-main">
             <router-view></router-view>
           </div>
         </div>
         <div class="layout-copy">
-          2011-2016 &copy; TalkingData
+          2017- &copy; ecomb
         </div>
       </i-col>
     </Row>
   </div>
 </template>
 <script>
+//  import e_menu from './e_menu.vue'
+
   export default {
     data () {
       return {

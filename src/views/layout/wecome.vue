@@ -1,6 +1,6 @@
 <template>
-  <div style="height: 400px; background-color: #9ea7b4;">
-    goods
+  <div>
+    wecome
   </div>
 </template>
 <script>
