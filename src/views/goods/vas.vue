@@ -50,7 +50,7 @@
       </Form-item>
 
       <Form-item class="pct45" prop="validDate" label="兑换码有效期">
-        <Date-picker type="date" placeholder="选择日期" v-model="vasForm.validDate"></Date-picker>
+        <Input-number :max="10" :min="1" v-model="vasForm.validDate" size="large"></Input-number>
       </Form-item>
 
       <Form-item class="pct45" label="服务介绍" prop="introduction">
@@ -60,7 +60,7 @@
       <Row>
         <Col>
           <Form-item class="pct45" label="详情图片" prop="detailimages">
-            <Input v-model="vasForm.detailimages" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入..."></Input>
+            <upload></upload>
           </Form-item>
         </Col>
       </Row>
@@ -81,6 +81,9 @@
   </div>
 </template>
 <script>
+
+  import upload from '../../components/upload.vue'
+
   export default {
     data () {
       return {
@@ -89,11 +92,11 @@
           outletId: '',
           categoryId: '',
           goodsName: '',
-          payType: '',
+          payType: [],
           exchangePrice: '',
           settlementPrice: '',
           marketPrice: '',
-          validDate: '',
+          validDate: 0,
           introduction: '',
           detailimages: '',
         },
@@ -106,6 +109,9 @@
 
         }
       }
+    },
+    components: {
+      'upload': upload,
     },
     methods: {
       handleSubmit (name) {

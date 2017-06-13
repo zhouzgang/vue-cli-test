@@ -12,7 +12,8 @@
         <vas></vas>
       </Tab-pane>
       <Tab-pane label="标签三" v-if="true">
-        <dragImage></dragImage>
+        <!--<dragImage></dragImage>-->
+        <upload></upload>
       </Tab-pane>
     </Tabs>
   </div>
@@ -22,6 +23,7 @@
   import vas_list from '../goods/vasList.vue'
   import vas from '../goods/vas.vue'
   import dragImage from '../../components/dragImage.vue'
+  import upload from '../../components/upload.vue'
 
   export default {
     data () {
@@ -32,6 +34,8 @@
     components: {
       'vas_list': vas_list,
       'vas': vas,
+      'dragImage': dragImage,
+      'upload': upload,
     },
 //    props:['tabName'],
     created: function () {
