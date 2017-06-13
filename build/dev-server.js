@@ -83,6 +83,9 @@ devMiddleware.waitUntilValid(() => {
 
 var server = app.listen(port)
 
+var mockData = require('./mockData');
+app.use('/', mockData);
+
 module.exports = {
   ready: readyPromise,
   close: () => {

@@ -53,13 +53,13 @@
   <div class="layout" :class="{'layout-hide-text': spanLeft < 4}">
     <Row type="flex">
       <i-col :span="spanLeft" class="layout-menu-left">
-        <Menu active-name="1-2" theme="dark" width="auto" :open-names="['1']">
+        <Menu active-name= "activeName" theme="dark" width="auto" :open-names="['1']">
           <Submenu name="1">
             <template slot="title">
               <Icon type="ios-navigate"></Icon>
-              商品
+              商品 {{ activeName }}
             </template>
-            <router-link to="/goods">
+            <router-link to="/goods" >
               <Menu-item name="1-1">添加商品</Menu-item>
             </router-link>
             <Menu-item name="1-2">选项 2</Menu-item>
@@ -70,7 +70,7 @@
               <Icon type="ios-keypad"></Icon>
               商家
             </template>
-            <router-link to="/business/business" >
+            <router-link to="/business" >
               <Menu-item name="2-1">选项 1</Menu-item>
             </router-link>
             <Menu-item name="2-2">选项 2</Menu-item>
@@ -86,19 +86,20 @@
         </Menu>
       </i-col>
       <i-col :span="spanRight">
-        <div class="layout-header">
-          <i-button type="text" @click="toggleClick">
-            <Icon type="navicon" size="32"></Icon>
-          </i-button>
-          <Breadcrumb style="display: inline-table;    background-color: rgb(255, 255, 255);">
-            <Breadcrumb-item href="#">首页</Breadcrumb-item>
-            <Breadcrumb-item href="#">应用中心</Breadcrumb-item>
-            <Breadcrumb-item>某应用</Breadcrumb-item>
-          </Breadcrumb>
-        </div>
+        <!--<div class="layout-header">-->
+          <!--<i-button type="text" @click="toggleClick">-->
+            <!--<Icon type="navicon" size="32"></Icon>-->
+          <!--</i-button>-->
+          <!--<Breadcrumb style="display: inline-table;    background-color: rgb(255, 255, 255);">-->
+            <!--<Breadcrumb-item href="#">首页</Breadcrumb-item>-->
+            <!--<Breadcrumb-item href="#">应用中心</Breadcrumb-item>-->
+            <!--<Breadcrumb-item>某应用</Breadcrumb-item>-->
+          <!--</Breadcrumb>-->
+        <!--</div>-->
         <div class="layout-content">
           <div class="layout-content-main">
-            <router-view></router-view>
+            <!--<router-view></router-view>-->
+            <my_content tab-name="t"></my_content>
           </div>
         </div>
         <div class="layout-copy">
@@ -109,14 +110,19 @@
   </div>
 </template>
 <script>
-//  import e_menu from './e_menu.vue'
+
+  import my_content from './e-content.vue'
 
   export default {
     data () {
       return {
         spanLeft: 4,
-        spanRight: 20
+        spanRight: 20,
+        activeName:'1-1',
       }
+    },
+    components: {
+      'my_content': my_content,
     },
     computed: {
       iconSize () {
@@ -133,6 +139,7 @@
           this.spanRight = 19;
         }
       }
-    }
+    },
+
   }
 </script>
