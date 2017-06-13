@@ -1,8 +1,6 @@
 <template>
   <div>
-    <!--<Row class="bbm">-->
-      <!--<span class="f20"><Icon type="ios-list-outline"></Icon> 服务列表</span>-->
-    <!--</Row>-->
+
     <!--S-参数表单-->
     <Row class="bbm">
       <Form ref="vasQueryForm" :model="vasQueryForm" :rules="ruleValidate" :label-width="80" inline>
@@ -140,18 +138,7 @@
                       this.show(params.index)
                     }
                   }
-                }, '查看'),
-                h('Button', {
-                  props: {
-                    type: 'error',
-                    size: 'small'
-                  },
-                  on: {
-                    click: () => {
-                      this.remove(params.index)
-                    }
-                  }
-                }, '删除')
+                }, '下架'),
               ]);
             }
           }

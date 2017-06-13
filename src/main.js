@@ -8,8 +8,11 @@ import 'iview/dist/styles/iview.css';
 import './assets/base.css'
 // import '../my-theme/index.less';
 import store from './vuex/index';
+import VueDND from 'awe-dnd'
 
 Vue.use(iView);
+
+Vue.use(VueDND)
 
 Vue.config.productionTip = false
 

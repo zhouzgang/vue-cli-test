@@ -10,7 +10,7 @@ import content from '@/views/layout/e-content.vue'
 import wecome from '@/views/layout/wecome.vue'
 
 //goods
-import goods from '@/views/goods/goods.vue'
+import goods from '@/views/goods/vas.vue'
 
 //business
 import business from '@/views/business/business.vue'

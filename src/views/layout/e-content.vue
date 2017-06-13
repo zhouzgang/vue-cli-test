@@ -8,14 +8,20 @@
       <Tab-pane label="服务列表" icon="ios-list-outline">
         <vas_list></vas_list>
       </Tab-pane>
-      <Tab-pane label="标签二" v-if="true">标签二的内容</Tab-pane>
-      <Tab-pane label="标签三" v-if="true">标签三的内容</Tab-pane>
+      <Tab-pane label="服务详情" icon="ios-list-outline">
+        <vas></vas>
+      </Tab-pane>
+      <Tab-pane label="标签三" v-if="true">
+        <dragImage></dragImage>
+      </Tab-pane>
     </Tabs>
   </div>
 </template>
 <script>
 
   import vas_list from '../goods/vasList.vue'
+  import vas from '../goods/vas.vue'
+  import dragImage from '../../components/dragImage.vue'
 
   export default {
     data () {
@@ -25,6 +31,7 @@
     },
     components: {
       'vas_list': vas_list,
+      'vas': vas,
     },
 //    props:['tabName'],
     created: function () {
