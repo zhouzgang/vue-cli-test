@@ -53,7 +53,13 @@
   <div class="layout" :class="{'layout-hide-text': spanLeft < 4}">
     <Row type="flex">
       <i-col :span="spanLeft" class="layout-menu-left">
-        <Menu active-name= "activeName" theme="dark" width="auto" :open-names="['1']">
+        <Menu active-name= "activeName" theme="dark" width="auto" :open-names="['1']" @on-select="">
+          <Submenu name="0">
+            <template slot="title">
+              <Icon type="ios-navigate"></Icon>
+              首页
+            </template>
+          </Submenu>
           <Submenu name="1">
             <template slot="title">
               <Icon type="ios-navigate"></Icon>
@@ -98,8 +104,8 @@
         <!--</div>-->
         <div class="layout-content">
           <div class="layout-content-main">
-            <!--<router-view></router-view>-->
-            <my_content tab-name="t"></my_content>
+            <router-view></router-view>
+            <!--<my_content :tabs="tabs"></my_content>-->
           </div>
         </div>
         <div class="layout-copy">
@@ -111,7 +117,7 @@
 </template>
 <script>
 
-  import my_content from './e-content.vue'
+//  import my_content from './e-content.vue'
 
   export default {
     data () {
@@ -119,10 +125,11 @@
         spanLeft: 4,
         spanRight: 20,
         activeName:'1-1',
+        tabs: ['r','e','w'],
       }
     },
     components: {
-      'my_content': my_content,
+//      'my_content': my_content,
     },
     computed: {
       iconSize () {

@@ -9,6 +9,7 @@ import * as getters from './getters'
 
 import account from './modules/account'
 import auth from './modules/auth'
+import center from './modules/center'
 
 Vue.use(Vuex)
 
@@ -18,10 +19,12 @@ const store = new Vuex.Store({
     actions,
     getters,
     module: {
-        account,
-        auth,
+      center,
+      account,
+      auth,
     },
-    strict: false,
+    // strict: false,
+    strict: debug,
     plugins: debug ? [createLogger()] : []
 })
 

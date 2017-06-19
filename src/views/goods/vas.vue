@@ -69,7 +69,7 @@
         <Col>
           <Form-item :label-width="20">
             <Button class="ml20" type="ghost" icon="arrow-return-left" @click="handleSubmit('vasForm')">返回</Button>
-            <Button class="ml20" type="success"  @click="handleSubmit('vasForm')">提交</Button>
+            <Button class="ml20" type="success" icon="ios-cloud-upload-outline"  @click="handleSubmit('vasForm')">提交</Button>
             <Button class="ml20" type="dashed" icon="edit" @click="handleSubmit('vasForm')">编辑</Button>
             <Button class="ml20" type="warning" icon="android-delete" @click="handleReset('vasForm')" style="margin-left: 8px">删除</Button>
           </Form-item>

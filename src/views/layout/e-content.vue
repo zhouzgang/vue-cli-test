@@ -1,19 +1,21 @@
 <template>
   <div>
     <Tabs type="card" closable >
-      <!--<Tab-pane v-for="tab in tabs" :key="tab" :label="'标签' + tab">-->
-        <!--标签{{ tab }}-->
-        <!--<router-view name=""></router-view>-->
-      <!--</Tab-pane>-->
-      <Tab-pane label="服务列表" icon="ios-list-outline">
+      <Tab-pane label="首页" icon="ios-list-outline">
         <vas_list></vas_list>
+      </Tab-pane>
+      <Tab-pane label="test" icon="ios-list-outline">
+        <test></test>
+      </Tab-pane>
+      <Tab-pane v-for="tab in tabs" :key="tab" :label="'标签' + tab">
+        标签{{ tab }} , {{ options }}
+        <router-view></router-view>
       </Tab-pane>
       <Tab-pane label="服务详情" icon="ios-list-outline">
         <vas></vas>
       </Tab-pane>
       <Tab-pane label="标签三" v-if="true">
-        <!--<dragImage></dragImage>-->
-        <upload></upload>
+        <dragImage></dragImage>
       </Tab-pane>
     </Tabs>
   </div>
@@ -24,11 +26,12 @@
   import vas from '../goods/vas.vue'
   import dragImage from '../../components/dragImage.vue'
   import upload from '../../components/upload.vue'
+  import test from '../test.vue'
 
   export default {
     data () {
       return {
-        tabs: []
+        tabs: ['r','e','w']
       }
     },
     components: {
@@ -36,14 +39,20 @@
       'vas': vas,
       'dragImage': dragImage,
       'upload': upload,
+      'test': test
     },
-//    props:['tabName'],
+    computed: {
+      options(){
+        return this.$store.state.options;
+      }
+    },
+//    props:['tabs'],
     created: function () {
-//      console.log(123);
+      console.log(this.tabs);
 //      console.log(this.tabName);
 //      this.tabs.push(this.tabName);
       console.log(this.tabs);
-      console.log(this);
+      console.log(this.$parent);
       console.log(this.$router.params);
 
     },

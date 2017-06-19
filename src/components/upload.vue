@@ -6,7 +6,6 @@
           v-for="file in defaultList"
           v-dragging="{ list: defaultList, item: file, group: 'file' }"
           class="demo-upload-list"
-          :style="{'background-color': file.text}"
           :key="file.text">
 
           <template v-if="file.status === 'finished'">
@@ -35,8 +34,8 @@
           multiple
           type="drag"
           action="//jsonplaceholder.typicode.com/posts/"
-          style="display: inline-block;width:58px;">
-          <div style="width: 58px;height:58px;line-height: 58px;">
+          style="display: inline-block;width:80px;">
+          <div style="width: 80px;height:80px;line-height: 80px;">
             <Icon type="camera" size="20"></Icon>
           </div>
         </Upload>
@@ -54,15 +53,51 @@
         defaultList: [
           {
             'name': 'a42bdcc1178e62b4694c830f028db5c0',
-            'url': 'https://o5wwk8baw.qnssl.com/a42bdcc1178e62b4694c830f028db5c0/avatar'
+            'url': 'https://o5wwk8baw.qnssl.com/a42bdcc1178e62b4694c830f028db5c0/avatar',
+            'text': '1',
+            'status': 'finished'
           },
           {
             'name': 'bc7521e033abdd1e92222d733590f104',
-            'url': 'https://o5wwk8baw.qnssl.com/bc7521e033abdd1e92222d733590f104/avatar'
+            'url': 'https://o5wwk8baw.qnssl.com/bc7521e033abdd1e92222d733590f104/avatar',
+            'text': '2',
+            'status': 'finished'
           },
           {
             'name': 'bc7521e033abdd1e92222d733590f104',
-            'url': 'https://o5wwk8baw.qnssl.com/bc7521e033abdd1e92222d733590f104/avatar'
+            'url': 'https://file.iviewui.com/dist/fe8d29da1225d943e30f9ee1bddce78f.png',
+            'text': '3',
+            'status': 'finished'
+          },
+          {
+            'name': 'bc7521e033abdd1e92222d733590f104',
+            'url': 'https://file.iviewui.com/dist/fe8d29da1225d943e30f9ee1bddce78f.png',
+            'text': '4',
+            'status': 'finished'
+          },
+          {
+            'name': 'bc7521e033abdd1e92222d733590f104',
+            'url': 'https://file.iviewui.com/dist/fe8d29da1225d943e30f9ee1bddce78f.png',
+            'text': '5',
+            'status': 'finished'
+          },
+          {
+            'name': 'bc7521e033abdd1e92222d733590f104',
+            'url': 'https://file.iviewui.com/dist/fe8d29da1225d943e30f9ee1bddce78f.png',
+            'text': '6',
+            'status': 'finished'
+          },
+          {
+            'name': 'bc7521e033abdd1e92222d733590f104',
+            'url': 'https://file.iviewui.com/dist/fe8d29da1225d943e30f9ee1bddce78f.png',
+            'text': '7',
+            'status': 'finished'
+          },
+          {
+            'name': 'bc7521e033abdd1e92222d733590f104',
+            'url': 'https://file.iviewui.com/dist/fe8d29da1225d943e30f9ee1bddce78f.png',
+            'text': '8',
+            'status': 'finished'
           }
         ],
         imgName: '',
@@ -136,10 +171,10 @@
 <style>
   .demo-upload-list{
     display: inline-block;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     text-align: center;
-    line-height: 60px;
+    line-height: 80px;
     border: 1px solid transparent;
     border-radius: 4px;
     overflow: hidden;

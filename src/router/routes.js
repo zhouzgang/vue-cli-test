@@ -5,8 +5,8 @@ import app from '@/App.vue'
 
 // layout
 import head from '@/views/layout/head.vue'
-import main from '@/views/layout/main.vue'
-import content from '@/views/layout/e-content.vue'
+import center from '@/views/layout/center.vue'
+import e_content from '@/views/layout/e-content.vue'
 import wecome from '@/views/layout/wecome.vue'
 
 //goods
@@ -27,15 +27,14 @@ const routes = [
     name: app,
     components: {
       head: head,
-      main: main,
-      // content: content
+      center: center,
     },
     children: [
-      // {
-      //   path: '/:name',
-      //   name: 'content',
-      //   component: content,
-      //   children: [
+      {
+        path: '/',
+        name: 'e_content',
+        component: e_content,
+        children: [
           {
             path: '/',
             name: wecome,
@@ -47,12 +46,12 @@ const routes = [
             component: goods
           },
           {
-            path: '/business/:name',
+            path: '/business',
             name: business,
             component: business
           }
-      //   ]
-      // },
+        ]
+      },
     ]
   },
   {

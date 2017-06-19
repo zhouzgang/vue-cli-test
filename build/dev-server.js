@@ -64,14 +64,18 @@ app.use(hotMiddleware)
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
 
-var uri = 'http://localhost:' + port
+var mockData = require('./mockData');
+app.use('/', mockData);
 
+
+var uri = 'http://localhost:' + port
 var _resolve
+
 var readyPromise = new Promise(resolve => {
   _resolve = resolve
 })
-
 console.log('> Starting dev server...')
+
 devMiddleware.waitUntilValid(() => {
   console.log('> Listening at ' + uri + '\n')
   // when env is testing, don't need open it
@@ -82,9 +86,6 @@ devMiddleware.waitUntilValid(() => {
 })
 
 var server = app.listen(port)
-
-var mockData = require('./mockData');
-app.use('/', mockData);
 
 module.exports = {
   ready: readyPromise,
