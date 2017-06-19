@@ -48,12 +48,12 @@
     },
 //    props:['tabs'],
     created: function () {
-      console.log(this.tabs);
+//      console.log(this.tabs);
 //      console.log(this.tabName);
 //      this.tabs.push(this.tabName);
-      console.log(this.tabs);
-      console.log(this.$parent);
-      console.log(this.$router.params);
+//      console.log(this.tabs);
+//      console.log(this.$parent);
+//      console.log(this.$router.params);
 
     },
     methods: {

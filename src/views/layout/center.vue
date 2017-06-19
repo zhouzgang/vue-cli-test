@@ -53,43 +53,47 @@
   <div class="layout" :class="{'layout-hide-text': spanLeft < 4}">
     <Row type="flex">
       <i-col :span="spanLeft" class="layout-menu-left">
-        <Menu active-name= "activeName" theme="dark" width="auto" :open-names="['1']" @on-select="">
-          <Submenu name="0">
-            <template slot="title">
-              <Icon type="ios-navigate"></Icon>
-              首页
-            </template>
-          </Submenu>
-          <Submenu name="1">
-            <template slot="title">
-              <Icon type="ios-navigate"></Icon>
-              商品 {{ activeName }}
-            </template>
-            <router-link to="/goods" >
-              <Menu-item name="1-1">添加商品</Menu-item>
-            </router-link>
-            <Menu-item name="1-2">选项 2</Menu-item>
-            <Menu-item name="1-3">选项 3</Menu-item>
-          </Submenu>
-          <Submenu name="2">
-            <template slot="title">
-              <Icon type="ios-keypad"></Icon>
-              商家
-            </template>
-            <router-link to="/business" >
-              <Menu-item name="2-1">选项 1</Menu-item>
-            </router-link>
-            <Menu-item name="2-2">选项 2</Menu-item>
-          </Submenu>
-          <Submenu name="3">
-            <template slot="title">
-              <Icon type="ios-analytics"></Icon>
-              导航三
-            </template>
-            <Menu-item name="3-1">选项 1</Menu-item>
-            <Menu-item name="3-2">选项 2</Menu-item>
-          </Submenu>
-        </Menu>
+
+          <!--<Menu active-name= "activeName" theme="dark" width="auto" :open-names="['1']" @on-select="">-->
+            <!--<Submenu name="0">-->
+              <!--<template slot="title">-->
+                <!--<Icon type="ios-navigate"></Icon>-->
+                <!--首页-->
+              <!--</template>-->
+            <!--</Submenu>-->
+            <!--<Submenu name="1">-->
+              <!--<template slot="title">-->
+                <!--<Icon type="ios-navigate"></Icon>-->
+                <!--商品 {{ activeName }}-->
+              <!--</template>-->
+              <!--<router-link to="/goods" >-->
+                <!--<Menu-item name="1-1">添加商品</Menu-item>-->
+              <!--</router-link>-->
+              <!--<Menu-item name="1-2">选项 2</Menu-item>-->
+              <!--<Menu-item name="1-3">选项 3</Menu-item>-->
+            <!--</Submenu>-->
+            <!--<Submenu name="2">-->
+              <!--<template slot="title">-->
+                <!--<Icon type="ios-keypad"></Icon>-->
+                <!--商家-->
+              <!--</template>-->
+              <!--<router-link to="/business" >-->
+                <!--<Menu-item name="2-1">选项 1</Menu-item>-->
+              <!--</router-link>-->
+              <!--<Menu-item name="2-2">选项 2</Menu-item>-->
+            <!--</Submenu>-->
+            <!--<Submenu name="3">-->
+              <!--<template slot="title">-->
+                <!--<Icon type="ios-analytics"></Icon>-->
+                <!--导航三-->
+              <!--</template>-->
+              <!--<Menu-item name="3-1">选项 1</Menu-item>-->
+              <!--<Menu-item name="3-2">选项 2</Menu-item>-->
+            <!--</Submenu>-->
+          <!--</Menu>-->
+
+        <e_menu :menuConfig='menuConfig'></e_menu>
+
       </i-col>
       <i-col :span="spanRight">
         <!--<div class="layout-header">-->
@@ -118,18 +122,47 @@
 <script>
 
 //  import my_content from './e-content.vue'
+  import e_menu from './e-menu.vue'
+
+const menuConfig = {
+  activeName:'',
+  index: {name: 'index', title: '首页', icon: '', pushUrl:'index'},
+  submenus: {
+    business: {
+      name: 'business',
+      title: '商家',
+      icon: 'asterisk',
+      items: [
+        {name: 'businessList', title: '商家列表', icon: 'paper-airplane', pushUrl:'businessList'},
+        {name: 'createBusiness', title: '创建商家', icon: '', pushUrl:'createBusiness'}
+      ]
+    },
+    goods:  {
+      name: 'goods',
+      title: '商品',
+      icon: '',
+      items: [
+        {name: 'goodsList', title: '商品列表', icon: '', pushUrl:'goodsList'},
+        {name: 'addGoods', title: '添加商家', icon: '', pushUrl:'addGoods'}
+      ]
+    },
+  }
+
+}
 
   export default {
     data () {
       return {
         spanLeft: 4,
         spanRight: 20,
+        menuConfig: menuConfig,
         activeName:'1-1',
         tabs: ['r','e','w'],
       }
     },
     components: {
 //      'my_content': my_content,
+      'e_menu': e_menu,
     },
     computed: {
       iconSize () {
