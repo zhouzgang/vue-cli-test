@@ -18,7 +18,7 @@ const debug = process.env.NODE_ENV !== 'production'
 const store = new Vuex.Store({
     actions,
     getters,
-    module: {
+    modules: {
       center,
       account,
       auth,

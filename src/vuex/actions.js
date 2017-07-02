@@ -16,4 +16,6 @@ export function login ({commit}, params) {
             commit(types.AUTH_LOGIN_FAIL, response.body)
             return Promise.reject(response)
         })
+
+
 }

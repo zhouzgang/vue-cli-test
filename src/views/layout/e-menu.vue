@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Menu active-name="menuConfig.activeName" theme="dark" width="auto" :open-names="['1']" @on-select="menuSelect">
+    <Menu active-name="menuActiveName" theme="dark" width="auto" :open-names="['1']" @on-select="menuSelect">
       <!--<Submenu name="1">-->
         <!--<template slot="title">-->
           <!--<Icon type="ios-navigate"></Icon>-->
@@ -50,21 +50,48 @@
   </div>
 </template>
 <script>
+
+  import {mapGetters, mapMutations} from 'vuex'
+
+  function initMenuConfigMap () {
+    const map = new Map();
+    map.set('index', this.menuConfig.index);
+    this.menuConfig.submenus.forEach((submenu) => {
+      submenu.items.forEach((item) => {
+        map.set(item.name, item);
+      }, this);
+    }, this);
+    return map
+  }
+
   export default {
     data () {
       return {}
     },
     props: ['menuConfig'],
-    created: function () {
-      console.log(this.menuConfig)
+    mounted: function () {
+      console.log(this.menuActiveName)
+    },
+    computed: {
+      ...mapGetters({
+        menuActiveName: 'menuActiveName'
+      })
     },
     methods: {
+      ...mapMutations({
+        menuToTab: 'MENU_TO_TAB'
+      }),
       menuSelect: function (name) {
-/*        TODO:
-  1.this.$router.push
-  2.this.$store.commit()
-   */
-        alert(name);
+        const map = initMenuConfigMap.call(this);
+        const tab = {
+          name: name,
+          label: map.get(name),
+        }
+//        this.menuToTab(tab);
+        this.$store.commit('MENU_TO_TAB', tab);
+        console.log(this.$router);
+        console.log(name, tab.name)
+        this.$router.push(tab.name);
       }
     }
   }

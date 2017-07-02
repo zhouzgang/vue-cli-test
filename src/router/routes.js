@@ -41,12 +41,12 @@ const routes = [
             component: wecome
           },
           {
-            path: '/goods',
+            path: '/goodsList',
             name: goods,
             component: goods
           },
           {
-            path: '/business',
+            path: '/businessList',
             name: business,
             component: business
           }

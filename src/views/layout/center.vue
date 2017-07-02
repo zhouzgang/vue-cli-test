@@ -127,8 +127,7 @@
 const menuConfig = {
   activeName:'',
   index: {name: 'index', title: '首页', icon: '', pushUrl:'index'},
-  submenus: {
-    business: {
+  submenus: [{
       name: 'business',
       title: '商家',
       icon: 'asterisk',
@@ -137,7 +136,7 @@ const menuConfig = {
         {name: 'createBusiness', title: '创建商家', icon: '', pushUrl:'createBusiness'}
       ]
     },
-    goods:  {
+    {
       name: 'goods',
       title: '商品',
       icon: '',
@@ -146,7 +145,7 @@ const menuConfig = {
         {name: 'addGoods', title: '添加商家', icon: '', pushUrl:'addGoods'}
       ]
     },
-  }
+  ]
 
 }
 

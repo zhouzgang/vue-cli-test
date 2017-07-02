@@ -9,10 +9,20 @@ const state = {
   options: ['q','w','e'],
   checkoutStatus: null,
   tt: '111',
+  menuTab: {
+    menuActiveName:'',
+    tabValue:'',
+    tabs:[],
+  }
 }
+
+// const map =
 
 // getters
 const getters = {
+  tabs: state => state.menuTab.tabs,
+  menuActiveName: state => state.menuTab.menuActiveName,
+  tabValue: state => state.menuTab.tabValue
     // checkoutStatus: state => state.checkoutStatus
 }
 
@@ -31,6 +41,31 @@ const actions = {
 
 // mutations
 const mutations = {
+
+  [types.MENU_TO_TAB] (state, tab){
+    state.menuTab.tabs.push(tab);
+    state.menuTab.menuActiveName = tab.name;
+    state.menuTab.tabValue = tab.name;
+
+  },
+
+  [types.CHANGE_TAB] (state, tab){
+    // if (tab){
+    //   //如果menu 没有tab.name 不要切换
+    // }
+    // console.log(tab)
+    state.menuTab.menuActiveName = tab.name;
+    state.menuTab.tabValue = tab.name;
+  },
+
+  [types.ADD_TAB] (state, {tab}){
+    state.menuTab.tabs.push(tab);
+  },
+
+  [types.DELETE_TAB] (state, {tab}){
+
+  }
+
   // [types.ADD_TO_CART] (state, { id }) {
   //   state.lastCheckout = null
   //   const record = state.added.find(p => p.id === id)
