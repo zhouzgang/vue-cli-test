@@ -10,7 +10,8 @@ import e_content from '@/views/layout/e-content.vue'
 import wecome from '@/views/layout/wecome.vue'
 
 //goods
-import goods from '@/views/goods/vas.vue'
+import goodsList from '@/views/goods/vasList.vue'
+import addGoods from '@/views/goods/vas.vue'
 
 //business
 import business from '@/views/business/business.vue'
@@ -42,8 +43,13 @@ const routes = [
           },
           {
             path: '/goodsList',
-            name: goods,
-            component: goods
+            name: goodsList,
+            component: goodsList
+          },
+          {
+            path: '/addGoods',
+            name: addGoods,
+            component: addGoods
           },
           {
             path: '/businessList',

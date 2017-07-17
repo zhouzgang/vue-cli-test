@@ -1,9 +1,6 @@
 require('./check-versions')()
 
 
-console.log('ttttttt', process.argv);
-
-
 var config = require('../config')
 if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
@@ -90,6 +87,8 @@ devMiddleware.waitUntilValid(() => {
 })
 
 var server = app.listen(port)
+
+console.log('start vue demo: this is a script')
 
 module.exports = {
   ready: readyPromise,

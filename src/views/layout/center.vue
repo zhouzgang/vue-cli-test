@@ -53,59 +53,9 @@
   <div class="layout" :class="{'layout-hide-text': spanLeft < 4}">
     <Row type="flex">
       <i-col :span="spanLeft" class="layout-menu-left">
-
-          <!--<Menu active-name= "activeName" theme="dark" width="auto" :open-names="['1']" @on-select="">-->
-            <!--<Submenu name="0">-->
-              <!--<template slot="title">-->
-                <!--<Icon type="ios-navigate"></Icon>-->
-                <!--首页-->
-              <!--</template>-->
-            <!--</Submenu>-->
-            <!--<Submenu name="1">-->
-              <!--<template slot="title">-->
-                <!--<Icon type="ios-navigate"></Icon>-->
-                <!--商品 {{ activeName }}-->
-              <!--</template>-->
-              <!--<router-link to="/goods" >-->
-                <!--<Menu-item name="1-1">添加商品</Menu-item>-->
-              <!--</router-link>-->
-              <!--<Menu-item name="1-2">选项 2</Menu-item>-->
-              <!--<Menu-item name="1-3">选项 3</Menu-item>-->
-            <!--</Submenu>-->
-            <!--<Submenu name="2">-->
-              <!--<template slot="title">-->
-                <!--<Icon type="ios-keypad"></Icon>-->
-                <!--商家-->
-              <!--</template>-->
-              <!--<router-link to="/business" >-->
-                <!--<Menu-item name="2-1">选项 1</Menu-item>-->
-              <!--</router-link>-->
-              <!--<Menu-item name="2-2">选项 2</Menu-item>-->
-            <!--</Submenu>-->
-            <!--<Submenu name="3">-->
-              <!--<template slot="title">-->
-                <!--<Icon type="ios-analytics"></Icon>-->
-                <!--导航三-->
-              <!--</template>-->
-              <!--<Menu-item name="3-1">选项 1</Menu-item>-->
-              <!--<Menu-item name="3-2">选项 2</Menu-item>-->
-            <!--</Submenu>-->
-          <!--</Menu>-->
-
         <e_menu :menuConfig='menuConfig'></e_menu>
-
       </i-col>
       <i-col :span="spanRight">
-        <!--<div class="layout-header">-->
-          <!--<i-button type="text" @click="toggleClick">-->
-            <!--<Icon type="navicon" size="32"></Icon>-->
-          <!--</i-button>-->
-          <!--<Breadcrumb style="display: inline-table;    background-color: rgb(255, 255, 255);">-->
-            <!--<Breadcrumb-item href="#">首页</Breadcrumb-item>-->
-            <!--<Breadcrumb-item href="#">应用中心</Breadcrumb-item>-->
-            <!--<Breadcrumb-item>某应用</Breadcrumb-item>-->
-          <!--</Breadcrumb>-->
-        <!--</div>-->
         <div class="layout-content">
           <div class="layout-content-main">
             <router-view></router-view>
@@ -133,7 +83,7 @@ const menuConfig = {
       icon: 'asterisk',
       items: [
         {name: 'businessList', title: '商家列表', icon: 'paper-airplane', pushUrl:'businessList'},
-        {name: 'createBusiness', title: '创建商家', icon: '', pushUrl:'createBusiness'}
+        {name: 'addBusiness', title: '创建商家', icon: '', pushUrl:'createBusiness'}
       ]
     },
     {

@@ -43,10 +43,12 @@ const actions = {
 const mutations = {
 
   [types.MENU_TO_TAB] (state, tab){
-    state.menuTab.tabs.push(tab);
+    // push 之前判断tab是否已经在tabs里面了
+    let haveTab = state.menuTab.tabs.filter(item => item.name === tab.name).length > 0
+    if (!haveTab)
+      state.menuTab.tabs.push(tab);
     state.menuTab.menuActiveName = tab.name;
     state.menuTab.tabValue = tab.name;
-
   },
 
   [types.CHANGE_TAB] (state, tab){

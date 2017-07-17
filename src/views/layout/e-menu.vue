@@ -1,36 +1,8 @@
 <template>
   <div>
     <Menu active-name="menuActiveName" theme="dark" width="auto" :open-names="['1']" @on-select="menuSelect">
-      <!--<Submenu name="1">-->
-        <!--<template slot="title">-->
-          <!--<Icon type="ios-navigate"></Icon>-->
-          <!--商品-->
-        <!--</template>-->
-        <!--<router-link to="/goods">-->
-          <!--<Menu-item name="1-1">添加商品</Menu-item>-->
-        <!--</router-link>-->
-        <!--<Menu-item name="1-2">选项 2</Menu-item>-->
-        <!--<Menu-item name="1-3">选项 3</Menu-item>-->
-      <!--</Submenu>-->
-      <!--<Submenu name="2">-->
-        <!--<template slot="title">-->
-          <!--<Icon type="ios-keypad"></Icon>-->
-          <!--商家-->
-        <!--</template>-->
-        <!--<router-link to="/business/business" >-->
-          <!--<Menu-item name="2-1">选项 1</Menu-item>-->
-        <!--</router-link>-->
-        <!--<Menu-item name="2-2">选项 2</Menu-item>-->
-      <!--</Submenu>-->
-      <!--<Submenu name="3">-->
-        <!--<template slot="title">-->
-          <!--<Icon type="ios-analytics"></Icon>-->
-          <!--导航三-->
-        <!--</template>-->
-        <!--<Menu-item name="3-1">选项 1</Menu-item>-->
-      <!--</Submenu>-->
 
-      <Menu-item name="menuConfig.index.name">
+      <Menu-item :name="menuConfig.index.name">
         <Icon type="asterisk"></Icon>
         {{ menuConfig.index.title }}
       </Menu-item>
@@ -66,11 +38,13 @@
 
   export default {
     data () {
-      return {}
+      return {
+        map: new Map()
+      }
     },
     props: ['menuConfig'],
     mounted: function () {
-      console.log(this.menuActiveName)
+      this.map = initMenuConfigMap.call(this);
     },
     computed: {
       ...mapGetters({
@@ -82,15 +56,11 @@
         menuToTab: 'MENU_TO_TAB'
       }),
       menuSelect: function (name) {
-        const map = initMenuConfigMap.call(this);
         const tab = {
           name: name,
-          label: map.get(name),
+          obj: this.map.get(name),
         }
-//        this.menuToTab(tab);
         this.$store.commit('MENU_TO_TAB', tab);
-        console.log(this.$router);
-        console.log(name, tab.name)
         this.$router.push(tab.name);
       }
     }

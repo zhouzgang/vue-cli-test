@@ -1,29 +1,29 @@
 <template>
   <div>
     <Tabs type="card" closable :value="tabValue" @on-click="tabClick"	@on-tab-remove="tabRemove">
-      <Tab-pane label="首页" icon="ios-list-outline">
-        <vas_list></vas_list>
-      </Tab-pane>
-      <Tab-pane label="test" icon="ios-list-outline">
-        <test></test>
-      </Tab-pane>
-      <Tab-pane v-for="tab in tabs" :name="tab.name" :label="tab.label">
+      <!--<Tab-pane label="首页" icon="ios-list-outline">-->
+        <!--<vas_list></vas_list>-->
+      <!--</Tab-pane>-->
+      <!--<Tab-pane label="test" icon="ios-list-outline">-->
+        <!--<test></test>-->
+      <!--</Tab-pane>-->
+      <Tab-pane v-for="tab in tabs" :name="tab.name" :label="tab.obj.title">
         <keep-alive>
           <router-view></router-view>
         </keep-alive>
       </Tab-pane>
-      <Tab-pane label="服务详情" icon="ios-list-outline">
-        <vas></vas>
-      </Tab-pane>
+      <!--<Tab-pane label="服务详情" icon="ios-list-outline">-->
+        <!--<vas></vas>-->
+      <!--</Tab-pane>-->
       <!--<Tab-pane label="标签三" v-if="true">-->
         <!--<dragImage></dragImage>-->
       <!--</Tab-pane>-->
-      <Tab-pane label="标签三tree" v-if="true">
-        <Tree :data="baseData" show-checkbox @on-select-change="treeClick"></Tree>
-      </Tab-pane>
-      <Tab-pane label="标签三tree" v-if="true">
-        <img src="../../assets/下载.png" height="239" width="211"/>
-      </Tab-pane>
+      <!--<Tab-pane label="标签三tree" v-if="true">-->
+        <!--<Tree :data="baseData" show-checkbox @on-select-change="treeClick"></Tree>-->
+      <!--</Tab-pane>-->
+      <!--<Tab-pane label="标签三tree" v-if="true">-->
+        <!--<img src="../../assets/下载.png" height="239" width="211"/>-->
+      <!--</Tab-pane>-->
 
 
     </Tabs>
@@ -35,7 +35,7 @@
   import vas from '../goods/vas.vue'
   import dragImage from '../../components/dragImage.vue'
   import upload from '../../components/upload.vue'
-  import test from '../test.vue'
+  import test from '../test2.vue'
 
   import { mapGetters, mapMutations } from 'vuex'
 
@@ -103,7 +103,7 @@
     },
 //    props:['tabs'],
     created: function () {
-//      console.log(this.tabs);
+      console.log(this.tabs);
 //      console.log(this.tabName);
 //      this.tabs.push(this.tabName);
 //      console.log(this.tabs);
